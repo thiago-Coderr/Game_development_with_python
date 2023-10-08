@@ -3,7 +3,7 @@
 then guess the names of its states. Players are presented with a map of the selected country, and they have to input 
 the correct state names based on the location of dots on the map given by the system.
 
-2) - Educational Purpose: The primary goal of the game is for educational. It aims to help elementary students
+2) - Educational Purpose: The primary goal of the game is for educational purpose. It aims to help elementary students
 learn about the geography of various countries, particularly their states or regions. By recognizing states on a map,
 players can improve their knowledge of geography.
 
