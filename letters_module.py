@@ -436,6 +436,7 @@ def letter_J(f_pen, f_colours):
 
 
 # =============  K   ================
+# Graphical representation of letter K
 
 
 def letter_K(f_pen, f_colours):
@@ -470,6 +471,7 @@ def letter_K(f_pen, f_colours):
 
 
 # =================  L  ==================
+# Graphical representation of letter L
 
 def letter_L(f_pen, f_colours):
     for _ in range(6):
@@ -491,6 +493,7 @@ def letter_L(f_pen, f_colours):
 
 
 # ===============  M  ================
+# Graphical representation of letter M
 
 def letter_M(f_pen, f_colours):
     for _ in range(6):
