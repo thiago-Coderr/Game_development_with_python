@@ -20,3 +20,18 @@ states, and textual information. It also includes graphical representations of p
 6) - Tech Stack: The project uses Python as its programming language and leverages various Python libraries and modules,
 including Turtle for graphics, Pandas for data handling (reading CSV files), and custom modules like letters_module for
 displaying letters.
+
+Note:
+The image files angola_1.gif, chad.gif, france.gif, india.gif and usa.gif are the map pictures of the countries
+
+The files angola_dots_coordinates.csv, chad_dots_coordinates.csv, france_dots_coordinates.csv, india_dots_coordinates 
+and usa_dots_coordinates.csv are files which contain the locations of dots on the map given by the system randomly in order
+to be attempted by the players.
+
+The files angola_coordinates.csv, chad_coordinates.csv, france_coordinates.csv, india_coordinates and 
+usa_coordinates.csv are files which contain the locations of states names on the map, that are going to be displayed
+once the player answer is correct, else, on the same point the system displays XXX.
+
+The file letters_module.py contains the 26 alphabet letters, so that at the end of the game, the system displays the 
+name and a message according the score the player got in graphical way.
+
