@@ -342,6 +342,10 @@ def main_menu():
     pen.penup()
     pen.goto(-400, -100)
     pen.pendown()
+    pen.write("Score records", font=("Arial", 16, "normal"))
+    pen.penup()
+    pen.goto(-400, -200)
+    pen.pendown()
     pen.write("Exit", font=("Arial", 16, "normal"))
 
     def main_menu_coordinates(x, y):
@@ -357,8 +361,11 @@ def main_menu():
             print("about the game")
         # Check if the user clicked on Option 3
         elif -400 <= x <= -100 and -120 <= y <= -80:
+            window.clear()
+            score_records_menu()
+        elif -400 <= x <= -100 and -220 <= y <= -180:
             turtle.bye()
-            print("Option 3 selected")
+            print("Exit selected")
 
     window.onscreenclick(main_menu_coordinates)
 
@@ -394,7 +401,7 @@ def select_country_menu():
     pen.penup()
     pen.goto(-400, -80)
     pen.pendown()
-    pen.write("<= Back to main menu", font=("Arial", 16, "normal"))
+    pen.write("<= Go back", font=("Arial", 16, "normal"))
 
     def select_country_coordinates(x, y):
         global new_name
@@ -508,57 +515,61 @@ def about_game_menu():
     pen.penup()
     pen.goto(-480, 200)
     pen.pendown()
-    pen.write("Guessing Countries States - An Open World Game Version 1.0", align="left", font=("Arial", 24, "bold"))
+    pen.write("About Guessing Countries States - Version 2.0", align="left", font=("Arial", 24, "bold"))
 
     # Write the game description
     pen.goto(-480, 150)
     pen.pendown()
     pen.write(
-        "Guessing Countries States is a game developed and published by Tiago Ntalani. In the game,",
+        "Guessing Countries States is a game developed and published by Tiago Afonso Ntalani.",
         align="left", font=("Arial", 14))
-    pen.goto(-480, 130)
-    pen.pendown()
-    pen.write("players select either USA or France to guess the states given by the system, inputting the correct name "
-              "of the state.",
-              align="left", font=("Arial", 14))
+
     pen.goto(-480, 110)
     pen.pendown()
     pen.write(
-        "If the inputted state name is correct, then it will display the name of the state on state spot and the "
-        "system will assign ",
+        "The game allows players to select a specific country (e.g., USA, France, Angola, Chad and India) and"
+        " then guess",
         align="left", font=("Arial", 14))
     pen.goto(-480, 90)
     pen.pendown()
-    pen.write("the player 3 points for every correct answer, if the answer is uncorrect the system will "
-              "display xxxx on incorrect state ",
+    pen.write("the names of its states. Players are presented with a map of the selected country, and they have to "
+              "input the correct.",
               align="left", font=("Arial", 14))
     pen.goto(-480, 70)
     pen.pendown()
     pen.write(
-        "spot, and no point will be assigned to the player. The player also defines out of how many "
-        "states he/she is willing to",
+        "state names based on the location of dots on the map given by the system.",
         align="left", font=("Arial", 14))
-    pen.goto(-480, 50)
-    pen.pendown()
-    pen.write(
-        "guess instead of all country states.",
-        align="left", font=("Arial", 14))
+
     pen.goto(-480, 30)
     pen.pendown()
     pen.write(
-        "The game was developed in order to help elementary students in Geography subject by guessing countries states ",
-        align="left", font=("Arial", 14))
+        "The primary goal of the game is for educational purpose. It aims to help elementary students learn more about "
+        "the ", align="left", font=("Arial", 14))
     pen.goto(-480, 10)
     pen.pendown()
-    pen.write("and recognize states map. Will make them recognize the states by its map shape and the country "
-              "in question...", align="left", font=("Arial", 14))
-
-    pen.goto(-400, -100)
+    pen.write("geography of various countries, particularly their states or regions. By recognizing states on a map, "
+              "players can", align="left", font=("Arial", 14))
+    pen.goto(-480, -10)
     pen.pendown()
-    pen.write("<= Go back", font=("Arial", 16, "normal"))
+    pen.write("improve their knowledge of geography.", align="left", font=("Arial", 14))
+    pen.goto(-480, -50)
+    pen.pendown()
+    pen.write("The game includes features such as player name input, the option to choose the number of states to guess"
+              ", and a", align="left", font=("Arial", 14))
+    pen.goto(-480, -70)
+    pen.pendown()
+    pen.write("scoring system based on correct guesses. The game provides feedback on the player's performance and then"
+              , align="left", font=("Arial", 14))
+    pen.goto(-480, -90)
+    pen.pendown()
+    pen.write("displays their name graphically on the screen.", align="left", font=("Arial", 14))
+    pen.goto(-480, -160)
+    pen.pendown()
+    pen.write("<= Go back", align="left", font=("Arial", 14))
 
     def about_game_menu_coordinates(x, y):
-        if -400 <= x <= -100 and -120 <= y <= -80:
+        if -480 <= x <= -180 and -170 <= y <= -130:
             window.clear()
             main_menu()
             print("Option 3 selected")
@@ -568,4 +579,4 @@ def about_game_menu():
 
 main_menu()
 
-window.mainloop()
+turtle.done()
