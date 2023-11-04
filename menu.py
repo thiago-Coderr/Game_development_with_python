@@ -569,7 +569,7 @@ def about_game_menu():
     pen.write("<= Go back", align="left", font=("Arial", 14))
 
     def about_game_menu_coordinates(x, y):
-        if -480 <= x <= -180 and -170 <= y <= -130:
+        if -480 <= x <= -180 <= y <= -130:
             window.clear()
             main_menu()
             print("Option 3 selected")
