@@ -198,7 +198,7 @@ def letter_D(f_pen, f_colours):
     f_pen.forward(12)
 
     for _ in range(3):
-        action_forward(0)
+        action_forward(f_pen, f_colours, 0)
 
     f_pen.setheading(90)
     f_pen.forward(12)
