@@ -2,6 +2,7 @@ import turtle
 import pandas
 import random
 import letters_module  # customized module for graphical representation of alphabet letters
+import score_module
 
 pen = turtle.Turtle()
 pen.hideturtle()
@@ -102,8 +103,12 @@ def print_name_graphically(player_name):
 # player_score gives the score out of 100% after the player attempted every guess: state_guessed is the number of
 # correct guessed states and out_of is the chosen number of guessing attempts.
 def player_scores(state_guessed, out_of):
+    my_file = "scores.txt"
     score = (len(state_guessed) / out_of) * 100
     last_score = float("{:.2f}".format(score))
+    score_module.append_content(my_file, new_name, last_score)
+    score_module.sort_scores(my_file)
+    score_module.onlyTop_3(my_file)
     window.clear()
     pen.penup()
     pen.goto(-110.0, 249.0)
@@ -361,8 +366,24 @@ def main_menu():
             print("about the game")
         # Check if the user clicked on Option 3
         elif -400 <= x <= -100 and -120 <= y <= -80:
+            my_file = "scores.txt"
             window.clear()
-            score_records_menu()
+            score_module.print_rank(pen, my_file)
+
+            pen.goto(-480, -160)
+            pen.pendown()
+            pen.write("<= Go back", align="left", font=("Arial", 14))
+
+            def about_game_menu_coordinates(x, y):
+                if -480 <= x <= -180 <= y <= -130:
+                    window.clear()
+                    main_menu()
+                    print("Option 3 selected")
+
+            window.onscreenclick(about_game_menu_coordinates)
+
+
+
         elif -400 <= x <= -100 and -220 <= y <= -180:
             turtle.bye()
             print("Exit selected")
