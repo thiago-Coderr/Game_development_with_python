@@ -244,6 +244,7 @@ def player_scores(state_guessed, out_of):
     pen.write("<= Back to menu", font=("Arial", 16, "normal"))
     pen.penup()
 
+    # Action decision coordinates after displaying scores
     def after_game_coordinates(x, y):
         if -400 <= x <= -200 and -30 <= y <= 20:
             window.clear()
@@ -255,6 +256,7 @@ def player_scores(state_guessed, out_of):
     window.onscreenclick(after_game_coordinates)
 
 
+# Checking whether the input given is empty
 def is_empty_string(variable):
     if len(variable) == 0:
         return True
@@ -262,6 +264,7 @@ def is_empty_string(variable):
         return False
 
 
+# checking whether data input is a number or not
 def is_convertible_to_int(input_str):
     try:
         int(input_str)
@@ -270,6 +273,7 @@ def is_convertible_to_int(input_str):
         return False
 
 
+# playing the game
 def play_selected_country(guessing_times, country_coordinates, dots_coordinates, colours_dot):
     def put_dot():
         pen.dot(12, random.choice(colours_dot))
@@ -383,7 +387,6 @@ def main_menu():
             window.onscreenclick(about_game_menu_coordinates)
 
 
-
         elif -400 <= x <= -100 and -220 <= y <= -180:
             turtle.bye()
             print("Exit selected")
@@ -391,6 +394,7 @@ def main_menu():
     window.onscreenclick(main_menu_coordinates)
 
 
+# Select preferred country to attempt guessing
 def select_country_menu():
     # Move the Turtle pen to the top left corner of the screen
     pen.penup()
@@ -458,7 +462,8 @@ def select_country_menu():
             window.addshape(image_2)
             turtle.shape(image_2)
             guess_number = window.textinput(title="Guessing number", prompt="How many state you want to guess "
-                                                                            "out of 13")
+             
+                                                                           "out of 13")
             while not is_convertible_to_int(guess_number):
                 guess_number = window.textinput(title="Guessing number", prompt="How many state you want to guess "
                                                                                 "out of 13")
@@ -484,8 +489,8 @@ def select_country_menu():
 
             play_selected_country(int(guess_number), angola_coordinates_file, angola_dot_coordinates_file, colours)
 
-            # Option 4 Chad
 
+        # Option 4 Chad
         elif -200 >= x >= -400 and 20 <= y <= 70:
 
             new_name = (window.textinput(title="Player Name", prompt="Enter your name")).title()
@@ -504,7 +509,7 @@ def select_country_menu():
 
             play_selected_country(int(guess_number), chad_coordinates_file, chad_dot_coordinates_file, colours)
 
-            # Option 5 India
+        # Option 5 India
         elif -400 <= x <= -200 and -30 <= y <= 20:
 
             new_name = (window.textinput(title="Player Name", prompt="Enter your name")).title()
@@ -532,6 +537,7 @@ def select_country_menu():
     window.onscreenclick(select_country_coordinates)
 
 
+# Little overview about the game information
 def about_game_menu():
     pen.penup()
     pen.goto(-480, 200)
@@ -589,6 +595,7 @@ def about_game_menu():
     pen.pendown()
     pen.write("<= Go back", align="left", font=("Arial", 14))
 
+    # Action coordinates for "About" menu
     def about_game_menu_coordinates(x, y):
         if -480 <= x <= -180 <= y <= -130:
             window.clear()
@@ -598,6 +605,7 @@ def about_game_menu():
     window.onscreenclick(about_game_menu_coordinates)
 
 
+# Calling the main menu function
 main_menu()
 
 turtle.done()
