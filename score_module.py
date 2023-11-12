@@ -1,20 +1,25 @@
 import os
 
+
+# checking whether the file is empty or not
 def is_file_empty(file_name):
     return os.path.getsize(file_name) == 0
 
 
+# checking whether the file have more than 3 lines
 def moreThan_3lines(file_name):
     with open(file_name, 'r') as file:
         lines = file.readlines()
         return len(lines) > 3
 
 
+# update the scores.txt file with newly player data
 def append_content(file_name, player_name, player_score):
     with open(file_name, 'a') as file:
         file.write(f"{player_score},{player_name}\n")
 
 
+# Remove content in scores.txt file from 4th line to make it top 3 only
 def onlyTop_3(file_name):
     with open(file_name, "r") as file:
         lines = file.readlines()
@@ -26,6 +31,7 @@ def onlyTop_3(file_name):
         file.writelines(lines)
 
 
+# Sorts the previous player data in the file in descending order
 def sort_scores(file_name):
     # Read the existing scores from the file
 
@@ -35,6 +41,7 @@ def sort_scores(file_name):
 
     with open(file_name, 'r') as file:
         lines = file.readlines()
+
     for line in lines:
         sides = line.split(",")
         array_score.append(float(sides[0]))
@@ -57,6 +64,7 @@ def ranking_updation(file_name, player_name, player_score):
     append_content(file_name, player_name, player_score)
 
 
+# Prints the top 3 players that have attempted the guessing states
 def print_rank(f_pen, file_name):
     array_name = []
     array_score = []
@@ -64,6 +72,7 @@ def print_rank(f_pen, file_name):
 
     with open(file_name, 'r') as file:
         lines = file.readlines()
+
     for line in lines:
         sides = line.split(",")
         array_score.append(float(sides[0]))
@@ -77,6 +86,8 @@ def print_rank(f_pen, file_name):
     f_pen.pendown()
 
     f_pen.write("============ Score Ranking ===========", align="left", font=("Arial", 24, "bold"))
+
+    # Display ranked 1st player
     f_pen.goto(-480, 110)
     f_pen.pendown()
     f_pen.write("Rank 1", align="left", font=("Arial", 14))
@@ -87,6 +98,7 @@ def print_rank(f_pen, file_name):
     f_pen.pendown()
     f_pen.write(f"Score: {array_score[0]}", align="left", font=("Arial", 14))
 
+    # Display ranked 2nd player
     f_pen.goto(-480, 30)
     f_pen.pendown()
     f_pen.write("Rank 2.", align="left", font=("Arial", 14))
@@ -97,6 +109,7 @@ def print_rank(f_pen, file_name):
     f_pen.pendown()
     f_pen.write(f"Score: {array_score[1]}", align="left", font=("Arial", 14))
 
+    # Display ranked 3rd player
     f_pen.goto(-480, -50)
     f_pen.pendown()
     f_pen.write("Rank 3.", align="left", font=("Arial", 14))
@@ -106,6 +119,3 @@ def print_rank(f_pen, file_name):
     f_pen.goto(-480, -90)
     f_pen.pendown()
     f_pen.write(f"Score: {array_score[2]}", align="left", font=("Arial", 14))
-
-
-
